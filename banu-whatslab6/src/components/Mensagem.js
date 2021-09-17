@@ -9,10 +9,8 @@ const MainConteiner = styled.div`
   flex-direction: column-reverse;
   /* justify-content: space-space-between; */
   background-color: lightgreen;
-  
   margin-left: 25vw;
   border: 1px solid black;
-  
   `
 
 const ConteinerMensagem = styled.div`
@@ -20,10 +18,18 @@ const ConteinerMensagem = styled.div`
   flex-direction: row;
   background-color: blue;
   justify-content: center;
-  padding: 1%;
-  
-  
-`  
+  /* padding: 1%; */
+  `  
+const TamanhoInputUsuario = styled.input`
+  width: 15%;
+`
+const TamanhoInputMensagem = styled.input`
+  width: 75%;
+`
+const TamanhoButton = styled.button`
+  width: 10%;
+`
+
 
 class Mensagem extends React.Component {
     state = {
@@ -35,11 +41,11 @@ class Mensagem extends React.Component {
       return (
       <MainConteiner>  
           <ConteinerMensagem>
-           <input type="text" placeholder="Usuário"  value="" />
-           <input type="text" placeholder="Mensagem" value="" />
-           <button>Enviar</button>
+            <TamanhoInputUsuario type="text" placeholder="Usuário"  value="" />
+            <TamanhoInputMensagem type="text" placeholder="Mensagem" value="" />
+            <TamanhoButton>Enviar</TamanhoButton>
           </ConteinerMensagem>
-        </MainConteiner> 
+      </MainConteiner> 
         
        )
     }
