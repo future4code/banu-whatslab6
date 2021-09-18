@@ -51,12 +51,12 @@ class Inputs extends React.Component {
 
 	}
 
-  // onClickEnviar = (e) => {
-  //    const listaMensagens = {nome:this.state.usuario , mensagem:this.state.mensagem}
-  //   this.setState({...this.state.chat: listaMensagens})
-  //   this.state.chat.push(listaMensagens)
-  //   console.log(this.state.chat)
-  // }
+  //    onClickEnviar = (e) => {
+  //   const listaMensagens = {nome:this.state.usuario , mensagem:this.state.mensagem}
+  //    this.setState({...this.state.chat: listaMensagens})
+  //    this.state.chat.push(listaMensagens)
+  //    console.log(this.state.chat)
+  //  }
   
 
     render() {
