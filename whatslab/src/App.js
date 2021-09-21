@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Mensagem from './components/Mensagem';
+import Inputs from './components/Inputs';
+import Mensagem from './components/Mensagem'
 
 function App() {
   return (
     <div className="App">
-      
-      <Mensagem  />
+      <Inputs />
     </div>
   );
 }
