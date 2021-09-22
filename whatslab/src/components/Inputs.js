@@ -13,12 +13,13 @@ const MainConteiner = styled.div`
   border: 1px solid black;
   `
 
-const ConteinerMensagem = styled.div`
+const ConteinerInputButton = styled.div`
   display: flex;
   flex-direction: row;
   background-color: blue;
   justify-content: center;
   `  
+
 const TamanhoInputUsuario = styled.input`
   width: 15%;
 `
@@ -26,15 +27,25 @@ const TamanhoInputMensagem = styled.input`
   width: 75%;
 `
 const TamanhoButton = styled.button`
-  width: 10%;
+  width: 10%;  
 `
+const MensagemContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  `
+const Texto = styled.div` `;
+
+const NomeUsuario = styled.div`
+  font-weight: bold;
+`;
+
 
 
 class Inputs extends React.Component {
     state = {
       usuario: '',
       mensagem: '',
-      // chat: []
+      chat: [],
     }
 
     onChangeUsuario = (e) => {
@@ -49,22 +60,45 @@ class Inputs extends React.Component {
 
 	}
 
-  //    onClickEnviar = (e) => {
-  //   const listaMensagens = {nome:this.state.usuario , mensagem:this.state.mensagem}
-  //    this.setState({...this.state.chat: listaMensagens})
-  //    this.state.chat.push(listaMensagens)
-  //    console.log(this.state.chat)
-  //  }
-  
+    /* Limpa o input ao enviar a mensagem digitada */
+    onClickAdd = () => {
+      this.setState({
+        usuario: "",
+        mensagem: "",
+      });
+
+    const NovasMensagens = [
+      ...this.state.chat,
+      {
+        usuario: this.state.usuario,
+        mensagem: this.state.mensagem,
+      },
+    ];
+
+    this.setState({
+      chat: NovasMensagens,
+    });
+  }
+
 
     render() {
+    console.log(this.state.chat)
+
       return (
-      <MainConteiner> 
-          <ConteinerMensagem>
+      <MainConteiner>
+           <ConteinerInputButton>
             <TamanhoInputUsuario onChange={this.onChangeUsuario} type="text" placeholder="Usuário"  value={this.state.usuario} />
             <TamanhoInputMensagem onChange={this.onChangeMensagem} type="text" placeholder="Mensagem" value={this.state.mensagem} />
-            <TamanhoButton onClick= {this.onClickEnviar}>Enviar</TamanhoButton>
-          </ConteinerMensagem>
+            <TamanhoButton onClick= {this.onClickAdd}>Enviar</TamanhoButton>
+          </ConteinerInputButton>
+          {this.state.chat.map((chat) => {
+            return (
+              <MensagemContainer>
+                <NomeUsuario>{chat.usuario}:</NomeUsuario>
+                <Texto>{chat.mensagem}</Texto>
+              </MensagemContainer>
+            );
+          })}
       </MainConteiner> 
         
        )
